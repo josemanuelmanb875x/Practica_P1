@@ -1,59 +1,176 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Proyecto Práctica 1: Fundamentos de Laravel (Rutas y Vistas)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+📋 Descripción del Proyecto
 
-## About Laravel
+Este es un proyecto académico para la Asignación 1, enfocado en los fundamentos de Laravel. Demuestra la implementación de rutas estáticas y dinámicas, el uso de un controlador para manejar la lógica, y la personalización de vistas Blade con CSS moderno.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+🎯 Objetivo del Proyecto
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Aprender y aplicar los conceptos fundamentales de Laravel:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Definir rutas estáticas (/bienvenida) y dinámicas (/saludo/{nombre}).
 
-## Learning Laravel
+Crear un controlador (PaginaController) para manejar la lógica de negocio.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+Pasar datos (nombre, longitud, fecha, hora) desde el controlador a la vista.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Utilizar vistas Blade para presentar la información con un diseño personalizado.
 
-## Laravel Sponsors
+✨ Características Principales
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+1. Ruta Estática de Bienvenida (/bienvenida)
 
-### Premium Partners
+Página de bienvenida con un diseño personalizado.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+Tema oscuro (fondo negro #111111) con acentos de color azul (#007bff).
 
-## Contributing
+Botón (CTA) que enlaza a la ruta dinámica de saludo.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+2. Ruta Dinámica de Saludo (/saludo/{nombre})
 
-## Code of Conduct
+Captura el parámetro {nombre} de la URL y lo muestra en un saludo personalizado.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Tarjetas de Información Dinámica: El controlador calcula y muestra:
 
-## Security Vulnerabilities
+El total de caracteres en el nombre.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+La hora actual de la visita.
 
-## License
+La fecha actual.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Configuración de Zona Horaria: El proyecto está configurado en config/app.php a America/Mexico_City para asegurar que la fecha y hora sean correctas.
+
+🛠️ Tecnologías Utilizadas
+
+Framework: Laravel
+
+Lenguaje: PHP 8.2+
+
+Frontend: Vistas Blade con CSS3 personalizado (Flexbox, Grid, Animaciones).
+
+Fuente: Google Fonts (Inter).
+
+🚀 Instalación y Configuración
+
+Puedes ejecutar este proyecto localmente siguiendo estos pasos:
+
+Clonar el repositorio:
+
+git clone [https://github.com/josemanuelmanb875x/Practica_P1.git](https://github.com/josemanuelmanb875x/Practica_P1.git)
+
+
+Navegar a la carpeta del proyecto:
+
+cd practica_p1
+
+
+Instalar las dependencias de Composer:
+
+composer install
+
+
+Copiar el archivo de entorno:
+
+cp .env.example .env
+
+
+Generar la llave de la aplicación:
+
+php artisan key:generate
+
+
+Iniciar el servidor de desarrollo:
+
+php artisan serve
+
+
+Abrir en el navegador:
+http://127.0.0.1:8000/bienvenida
+
+🔧 Desarrollo y Código
+
+Extractos clave del código que hacen funcionar el proyecto.
+
+1. Estructura del Controlador (PaginaController.php)
+
+El controlador maneja la lógica para ambas rutas y pasa los datos a la vista de saludo.
+
+<?php
+namespace App\Http\Controllers;
+use Illuminate\Http\Request;
+
+class PaginaController extends Controller
+{
+    public function mostrarBienvenida()
+    {
+        // Retorna la vista estática
+        return view('bienvenida');
+    }
+
+    public function mostrarSaludo($nombre)
+    {
+        // 1. Calcula la longitud del nombre
+        $longitud = mb_strlen($nombre);
+
+        // 2. Obtiene fecha y hora (configuradas a 'America/Mexico_City')
+        $fecha = now()->format('d/m/Y');
+        $hora = now()->format('H:i');
+
+        // 3. Pasa todas las variables a la vista
+        return view('saludo', compact('nombre', 'longitud', 'fecha', 'hora'));
+    }
+}
+
+
+2. Definición de Rutas (routes/web.php)
+
+Se definen las dos rutas principales, enlazando cada una a su método correspondiente en el PaginaController.
+
+<?php
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PaginaController;
+
+// 1. Ruta Estática de Bienvenida
+Route::get('/bienvenida', [PaginaController::class, 'mostrarBienvenida']);
+
+// 2. Ruta Dinámica de Saludo
+Route::get('/saludo/{nombre}', [PaginaController::class, 'mostrarSaludo']);
+
+
+🌐 Rutas Disponibles
+
+URL
+
+Tipo
+
+Descripción
+
+/bienvenida
+
+Estática
+
+Muestra la página de bienvenida personalizada.
+
+/saludo/{nombre}
+
+Dinámica
+
+Muestra un saludo personalizado e información (ej. /saludo/Carlos).
+
+📸 Capturas de Pantalla
+
+Ruta Estática (/bienvenida)
+
+![alt text](image.png)
+
+Ruta Dinámica (/saludo/TuNombre)
+
+![alt text](image-1.png)
+
+✍️ Autor
+
+Jose Manuel
+
+Repositorio: josemanuelmanb875x/Practica_P1
+
+Proyecto para la Asignación 1 del curso de Laravel.
